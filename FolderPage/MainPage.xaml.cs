@@ -13,19 +13,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPF_EX2022
+namespace WPF_EX2022.FolderPage
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для MainPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainPage : Page
     {
-        public MainWindow()
+        public MainPage()
         {
             InitializeComponent();
-            FolderClass.PageSwitch.frame = Fmain;
-            FolderClass.BD.Data = new Entities1();
-            Fmain.Navigate(new FolderPage.MainPage());
+            LVmarket.ItemsSource = FolderClass.BD.Data.BookMarket.ToList();
         }
     }
 }
