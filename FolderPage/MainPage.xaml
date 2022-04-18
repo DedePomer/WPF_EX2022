@@ -8,27 +8,34 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MainPage">
 
-    <Grid>
-
-
-        <ListView  x:Name="LVmarket" Height="auto" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Border BorderBrush="Black" BorderThickness="2">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Height="100" Width="100"  Source="{Binding Img}"/>
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock FontSize="14" Text="{Binding TitleGener}"></TextBlock>
-                                <TextBlock Text="{Binding Author, StringFormat={}Автор: {0}}"></TextBlock>
-                                <TextBlock Text="{Binding Cost, StringFormat={}Цена: {0}}"></TextBlock>
-                                <TextBlock Text="{Binding MarketCount, StringFormat={}Количество в магазине: {0}}"></TextBlock>
-                                <TextBlock Text="{Binding StockCount, StringFormat={}Количество на складе: {0}}"></TextBlock>
-                                <TextBlock Width="600" TextWrapping="Wrap" Text="{Binding SubDiscription, StringFormat={}Описание: {0}}"></TextBlock>
+    <Grid ScrollViewer.VerticalScrollBarVisibility="Visible">
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical">
+                <Border BorderBrush="Black" BorderThickness="2">
+                    <TextBox x:Name="TBOXCountBook" >Колличество выбранных книг: 0</TextBox>
+                </Border>
+            </StackPanel>
+            
+            <ListView  x:Name="LVmarket" Height="300" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Black" BorderThickness="2">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Height="100" Width="100"  Source="{Binding Img}"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock FontSize="14" Text="{Binding TitleGener}"></TextBlock>
+                                    <TextBlock Text="{Binding Author, StringFormat={}Автор: {0}}"></TextBlock>
+                                    <TextBlock Text="{Binding Cost, StringFormat={}Цена: {0}}"></TextBlock>
+                                    <TextBlock Text="{Binding MarketCount, StringFormat={}Количество в магазине: {0}}"></TextBlock>
+                                    <TextBlock Text="{Binding StockCount, StringFormat={}Количество на складе: {0}}"></TextBlock>
+                                    <TextBlock Width="600" TextWrapping="Wrap" Text="{Binding SubDiscription, StringFormat={}Описание: {0}}"></TextBlock>
+                                </StackPanel>
+                                <Button Height="50" Uid="{Binding id}" Click="Button_Click">Добавить в корзину</Button>
                             </StackPanel>
-                        </StackPanel>
-                    </Border>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
     </Grid>
 </Page>
