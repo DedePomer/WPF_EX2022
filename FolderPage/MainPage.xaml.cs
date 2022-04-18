@@ -65,10 +65,11 @@ namespace WPF_EX2022.FolderPage
 
                 if (sale>0)
                 {
-                    TBOXCostWithoutSale.Text = CalcCost(orderTables) + "";
-                    TBOXSale.Text = sale+"";
+                    TBOXCostWithoutSale.Text = CalcCost(orderTables) + "";                  
                 }
-                double cost = 1-(sale / 100);
+                TBOXSale.Text = sale + " %";
+                double Dsale = sale;
+                double cost = CalcCost(orderTables)*( 1 -(Dsale / 100));
                 TBOXCost.Text = cost + "";
 
                 TBOXCountBook.Text = "Колличество выбранных книг: "+ orderTables.Count+"";

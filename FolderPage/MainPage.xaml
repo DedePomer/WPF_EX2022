@@ -20,7 +20,11 @@
                             <TextBox x:Name="TBOXCostWithoutSale" TextDecorations="Strikethrough"></TextBox>
                             <TextBox x:Name="TBOXCost" >0</TextBox>
                         </StackPanel>
-                        <TextBox x:Name="TBOXSale" >Размер скидки: 0 %</TextBox>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox  >Размер скидки: </TextBox>
+                            <TextBox x:Name="TBOXSale" >0 %</TextBox>
+                        </StackPanel>
+                        
                     </StackPanel>
                 </Border>
             </StackPanel>
