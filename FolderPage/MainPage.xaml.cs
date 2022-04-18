@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SaleLibrary;
 
 namespace WPF_EX2022.FolderPage
 {
@@ -26,7 +27,7 @@ namespace WPF_EX2022.FolderPage
         public MainPage()
         {
             InitializeComponent();
-            LVmarket.ItemsSource = FolderClass.BD.Data.BookMarket.ToList();
+            LVmarket.ItemsSource = FolderClass.BD.Data.BookMarket.ToList();          
         }
 
 
@@ -60,10 +61,33 @@ namespace WPF_EX2022.FolderPage
                 FolderClass.BD.Data.SaveChanges();
                 orderTables = FolderClass.BD.Data.OrderTable.ToList();
                 MessageBox.Show("Добавление", "Данные добавлены в корзину", MessageBoxButton.OK, MessageBoxImage.Information);
+                int sale = Class1.SaleCalc(orderTables.Count, CalcCost(orderTables));
+
+                if (sale>0)
+                {
+                    TBOXCostWithoutSale.Text = CalcCost(orderTables) + "";
+                    TBOXSale.Text = sale+"";
+                }
+                double cost = 1-(sale / 100);
+                TBOXCost.Text = cost + "";
+
                 TBOXCountBook.Text = "Колличество выбранных книг: "+ orderTables.Count+"";
             }           
         }
 
+        public float CalcCost(List<OrderTable> list)
+        {
+            double Coast = 0;
+            for (int i = 0; i < list.Count; i++)
+            {
+                Coast += (double)bookMarkets[list[i].BookId-1].Cost;
+            }
+            return (float)Coast;
+        }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            FolderClass.PageSwitch.frame.Navigate(new BasketPage(orderTables));
+        }
     }
 }

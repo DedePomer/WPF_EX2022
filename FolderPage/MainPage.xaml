@@ -10,12 +10,17 @@
 
     <Grid ScrollViewer.VerticalScrollBarVisibility="Visible">
         <StackPanel Orientation="Vertical">
-            <StackPanel Orientation="Vertical">
+            <StackPanel Width="250" HorizontalAlignment="Right" Orientation="Vertical">
+                <Button Click="Button_Click_1">В корзину</Button>
                 <Border BorderBrush="Black" BorderThickness="2">
                     <StackPanel>
                         <TextBox x:Name="TBOXCountBook" >Колличество выбранных книг: 0</TextBox>
-                        <TextBox x:Name="TBOXCost" >Стоимость покупки: 0</TextBox>
-                        <TextBox x:Name="TBOXSale" >Размер скидки: 0</TextBox>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox  >Стоимость покупки:</TextBox>
+                            <TextBox x:Name="TBOXCostWithoutSale" TextDecorations="Strikethrough"></TextBox>
+                            <TextBox x:Name="TBOXCost" >0</TextBox>
+                        </StackPanel>
+                        <TextBox x:Name="TBOXSale" >Размер скидки: 0 %</TextBox>
                     </StackPanel>
                 </Border>
             </StackPanel>
