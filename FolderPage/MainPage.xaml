@@ -12,7 +12,11 @@
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Vertical">
                 <Border BorderBrush="Black" BorderThickness="2">
-                    <TextBox x:Name="TBOXCountBook" >Колличество выбранных книг: 0</TextBox>
+                    <StackPanel>
+                        <TextBox x:Name="TBOXCountBook" >Колличество выбранных книг: 0</TextBox>
+                        <TextBox x:Name="TBOXCost" >Стоимость покупки: 0</TextBox>
+                        <TextBox x:Name="TBOXSale" >Размер скидки: 0</TextBox>
+                    </StackPanel>
                 </Border>
             </StackPanel>
             
